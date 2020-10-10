@@ -7,7 +7,6 @@ import COVID19Py
 covid19 = COVID19Py.COVID19()
 bot = telebot.TeleBot(config.token)
 
- 
 markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
 item1 = types.KeyboardButton("корона")
 item2 = types.KeyboardButton("😊 Как дела?")
