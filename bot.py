@@ -1,9 +1,8 @@
 import telebot
 import config
-import random
 from telebot import types
 import COVID19Py
- 
+from corona import getcorona
 
 covid19 = COVID19Py.COVID19()
 bot = telebot.TeleBot(config.token)
@@ -26,7 +25,7 @@ def lalala(message):
             markup.row('сша', 'россия', 'италия','япония')
             bot.send_message(message.chat.id, "Введите страну:",
         parse_mode='html', reply_markup=markup)
-            bot.register_next_step_handler(message, corona)
+            bot.register_next_step_handler(message, choosecountry)
         elif message.text == '😊 Как дела?':
             markup = types.InlineKeyboardMarkup(row_width=2)
             item1 = types.InlineKeyboardButton("Хорошо", callback_data='good')
@@ -38,7 +37,10 @@ def lalala(message):
         else:
             bot.send_message(message.chat.id, 'Я не знаю что ответить 😢')
  
-@bot.message_handler(content_types= ['text'])
+def choosecountry(message):
+    bot.send_message(message.chat.id, getcorona(message.text), reply_markup=markup)
+
+"""@bot.message_handler(content_types= ['text'])
 def corona(message):
     final_message = ""
     get_message_bot = message.text.strip().lower()
@@ -63,7 +65,7 @@ def corona(message):
 				f"Заболевших: </b>{location[0]['latest']['confirmed']:,}\n<b>Сметрей: </b>" \
 				f"{location[0]['latest']['deaths']:,}"
 
-    bot.send_message(message.chat.id, final_message, parse_mode='html', reply_markup=markup)
+    bot.send_message(message.chat.id, final_message, parse_mode='html', reply_markup=markup)"""
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
