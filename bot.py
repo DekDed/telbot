@@ -80,8 +80,8 @@ def callback_inline(call):
             bot.answer_callback_query(callback_query_id=call.id, show_alert=False,
                 text="ЭТО ТЕСТОВОЕ УВЕДОМЛЕНИЕ!!11")
  
-    """except Exception as e:
-        print(repr(e))"""
+    except Exception as e:
+        print(repr(e))
 
 if __name__ == '__main__':
      bot.polling(none_stop=True)
