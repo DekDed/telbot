@@ -1,14 +1,5 @@
 from covid19_data import JHU
-import telebot
 
-"""print("The number of COVID-19 recoveries in the US: " + str(JHU.US.recovered))
-print("The number of confirmed COVID-19 cases in Texas: " + str(JHU.Texas.confirmed))
-print("The number of COVID-19 deaths in California: " + str(JHU.California.deaths))
-print("The number of worldwide COVID-19 deaths: " + str(JHU.Total.deaths))
-print("The number of COVID-19 deaths in Russia: " + str(JHU.Russia.deaths))
-print("The number of confirmed COVID-19 cases in Russia: " + str(JHU.Russia.confirmed))
-print("The number of COVID-19 recoveries in the Russia: " + str(JHU.Russia.recovered))
-print("The number of COVID-19 deaths in UK: " + str(JHU.UnitedKingdom.deaths))"""
 
 def getcorona(country):
     final_message = ""
