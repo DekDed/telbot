@@ -14,7 +14,7 @@ def getcorona(country):
     final_message = ""
     get_message_bot = country
     if get_message_bot == "сша":
-        final_message = "Данные по США: " + "\n Заболевшие: " + str(JHU.US.confirmed) + "\n Умершие: " + str(JHU.US.deaths) + "\n Выздоровевшие: " + str(JHU.US.recovered)
+        final_message = "Данные по США: " + "\nЗаболевшие: " + str(JHU.US.confirmed) + "\nУмершие: " + str(JHU.US.deaths) + "\nВыздоровевшие: " + str(JHU.US.recovered)
 
     elif get_message_bot == "россия":
         final_message = "Данные по России: " + "\nЗаболевшие: " + str(JHU.Russia.confirmed) + "\nУмершие: " + str(JHU.Russia.deaths) + "\nВыздоровевшие: " + str(JHU.Russia.recovered)
