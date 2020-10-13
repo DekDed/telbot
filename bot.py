@@ -1,10 +1,8 @@
 import telebot
 import config
 from telebot import types
-#import COVID19Py
 from cov import getcorona
 
-#covid19 = COVID19Py.COVID19()
 bot = telebot.TeleBot(config.token)
 
 markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
