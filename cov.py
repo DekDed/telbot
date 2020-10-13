@@ -14,38 +14,17 @@ def getcorona(country):
     final_message = ""
     get_message_bot = country
     if get_message_bot == "сша":
-        bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAIgT1-A4QeHcYRTjLeh7Q35tkpYaU2IAAIZBgACu-LZS7x-ZyzJUUkPGwQ')
         final_message = "Данные по США: " + "\nЗаболевшие: " + str(JHU.US.confirmed) + "\nУмершие: " + str(JHU.US.deaths) + "\nВыздоровевшие: " + str(JHU.US.recovered)
 
     elif get_message_bot == "россия":
         final_message = "Данные по России: " + "\nЗаболевшие: " + str(JHU.Russia.confirmed) + "\nУмершие: " + str(JHU.Russia.deaths) + "\nВыздоровевшие: " + str(JHU.Russia.recovered)
 
-    """elif get_message_bot == "япония":
-        final_message = f"Данные по Японии: " "\n" 
-        + "Заболевшие: " + str(JHU.Japan.confirmed) + "\n" 
-        + "Умершие: " + str(JHU.Japan.deaths) + "\n"
-        + "Выздоровевшие: " + str(JHU.Japan.recovered)
+    elif get_message_bot == "япония":
+        final_message = "Данные по Японии: " + "\nЗаболевшие: " + str(JHU.Japan.confirmed) + "\nУмершие: " + str(JHU.Japan.deaths) + "\nВыздоровевшие: " + str(JHU.Japan.recovered)
         
     elif get_message_bot == "италия":
-        final_message = f"Данные по Италии: " "\n" 
-        + "Заболевшие: " + str(JHU.Italy.confirmed) + "\n" 
-        + "Умершие: " + str(JHU.Italy.deaths) + "\n"
-        + "Выздоровевшие: " + str(JHU.Italy.recovered)
+        final_message = "Данные по Италии: " + "\nЗаболевшие: " + str(JHU.Italy.confirmed) + "\nУмершие: " + str(JHU.Italy.deaths) + "\nВыздоровевшие: " + str(JHU.Italy.recovered)
     else:
-        final_message = f"Данные по всему миру: " "\n" 
-        + "Заболевшие: " + str(JHU.Total.confirmed) + "\n" 
-        + "Умершие: " + str(JHU.Total.deaths) + "\n"
-        + "Выздоровевшие: " + str(JHU.Total.recovered)
-
-
-
-    if final_message == "":
-        date = location[0]['last_updated'].split("T")
-        time = date[1].split(".")
-        #bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAIgT1-A4QeHcYRTjLeh7Q35tkpYaU2IAAIZBgACu-LZS7x-ZyzJUUkPGwQ')
-        final_message = f"<u>Данные по стране:</u>\nНаселение: {location[0]['country_population']:,}\n" \
-				f"Последнее обновление: {date[0]} {time[0]}\nПоследние данные:\n<b>" \
-				f"Заболевших: </b>{location[0]['latest']['confirmed']:,}\n<b>Сметрей: </b>" \
-				f"{location[0]['latest']['deaths']:,}"""
+        final_message = "Данные по всему миру: " "\nЗаболевшие: " + str(JHU.Total.confirmed) + "\nУмершие: " + str(JHU.Total.deaths) + "\nВыздоровевшие: " + str(JHU.Total.recovered)
 
     return final_message

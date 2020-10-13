@@ -23,6 +23,7 @@ def lalala(message):
             markup.row('сша', 'россия', 'италия','япония')
             bot.send_message(message.chat.id, "Введите страну:",
         parse_mode='html', reply_markup=markup)
+            bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAIgT1-A4QeHcYRTjLeh7Q35tkpYaU2IAAIZBgACu-LZS7x-ZyzJUUkPGwQ')
             bot.register_next_step_handler(message, choosecountry)
         elif message.text == '😊 Как дела?':
             markup = types.InlineKeyboardMarkup(row_width=2)
