@@ -1,5 +1,5 @@
 from covid19_data import JHU
-
+import telebot
 
 """print("The number of COVID-19 recoveries in the US: " + str(JHU.US.recovered))
 print("The number of confirmed COVID-19 cases in Texas: " + str(JHU.Texas.confirmed))
@@ -14,6 +14,7 @@ def getcorona(country):
     final_message = ""
     get_message_bot = country
     if get_message_bot == "сша":
+        bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAIgT1-A4QeHcYRTjLeh7Q35tkpYaU2IAAIZBgACu-LZS7x-ZyzJUUkPGwQ')
         final_message = "Данные по США: " + "\nЗаболевшие: " + str(JHU.US.confirmed) + "\nУмершие: " + str(JHU.US.deaths) + "\nВыздоровевшие: " + str(JHU.US.recovered)
 
     elif get_message_bot == "россия":
