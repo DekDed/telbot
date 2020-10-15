@@ -23,13 +23,16 @@ def lalala(message):
             bot.send_message(message.chat.id, "Выберите страну:",
         parse_mode='html', reply_markup=markup)
             bot.register_next_step_handler(message, choosecountry)
+        elif message.text == 'Начать диалог':
+            markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+            markup.row('Привет', 'Закончить Диалог')
         elif message.text == 'Привет':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('Как тебя зовут?', 'Закончить Диалог')
             bot.send_message(message.chat.id, "Привет, {0.first_name}!".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup=markup)
         elif message.text == 'Как тебя зовут?':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            markup.row('😊 Как дела?', 'Закончить Диалог')
+            markup.row('😊 Как у тебя дела?', 'Закончить Диалог')
             bot.send_message(message.chat.id, "Я - <b>{1.first_name}</b>".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup=markup)
         elif message.text == 'Закончить Диалог':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -37,7 +40,7 @@ def lalala(message):
             item2 = types.KeyboardButton("Привет")
             markup.add(item1, item2)
             bot.send_message(message.chat.id, 'До свидания, с вами было приятно общаться!', reply_markup=markup)
-        elif message.text == '😊 Как дела?':
+        elif message.text == '😊 Как у тебя дела?':
             markup = types.InlineKeyboardMarkup(row_width=2)
             item1 = types.InlineKeyboardButton("Хорошо", callback_data='good')
             item2 = types.InlineKeyboardButton("Не очень", callback_data='bad')
