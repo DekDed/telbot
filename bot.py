@@ -26,7 +26,7 @@ def lalala(message):
         elif message.text == 'Начать диалог':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('Привет', 'Закончить Диалог')
-            bot.send_message(message.chat.id, "123", reply_markup=markup)
+            bot.send_message(message.chat.id, "---", reply_markup=markup)
         elif message.text == 'Привет':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('Как тебя зовут?', 'Закончить Диалог')
