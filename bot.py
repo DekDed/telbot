@@ -6,8 +6,8 @@ from cov import getcorona
 bot = telebot.TeleBot(config.token)
 
 markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-item1 = types.KeyboardButton("корона")
-item2 = types.KeyboardButton("😊 Как дела?")
+item1 = types.KeyboardButton("Коронавирус")
+item2 = types.KeyboardButton("Привет")
 markup.add(item1, item2)
 
 @bot.message_handler(commands=['start'])
@@ -18,19 +18,28 @@ def welcome(message):
  
 @bot.message_handler(content_types=['text'])
 def lalala(message):
-        if message.text == 'корона':
+        if message.text == 'Коронавирус':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('сша', 'россия', 'италия','япония')
-            bot.send_message(message.chat.id, "Введите страну:",
+            bot.send_message(message.chat.id, "Выберите страну:",
         parse_mode='html', reply_markup=markup)
             bot.register_next_step_handler(message, choosecountry)
+        elif message.text == 'Привет':
+            markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+            markup.row('Как тебя зовут?', 'Закончить Диалог')
+            bot.send_message(message.chat.id, 'Добро пожаловать!')
+        elif message.text == 'Как тебя зовут?':
+            markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+            markup.row('😊 Как дела?', 'Закончить Диалог')
+            bot.send_message(message.chat.id, 'Я - <b>{1.first_name}</b>', parse_mode='html')
+        elif message.text == 'Закончить Диалог':
+            markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+            bot.send_message(message.chat.id, 'До свидания, с вами было приятно общаться!', reply_markup=markup)
         elif message.text == '😊 Как дела?':
             markup = types.InlineKeyboardMarkup(row_width=2)
             item1 = types.InlineKeyboardButton("Хорошо", callback_data='good')
             item2 = types.InlineKeyboardButton("Не очень", callback_data='bad')
- 
             markup.add(item1, item2)
- 
             bot.send_message(message.chat.id, 'Отлично, сам как?', reply_markup=markup)
         else:
             bot.send_message(message.chat.id, 'Я не знаю что ответить 😢')
