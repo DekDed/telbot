@@ -7,7 +7,7 @@ bot = telebot.TeleBot(config.token)
 
 markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
 item1 = types.KeyboardButton("Коронавирус")
-item2 = types.KeyboardButton("Привет")
+item2 = types.KeyboardButton("Начать диалог")
 markup.add(item1, item2)
 
 @bot.message_handler(commands=['start'])
@@ -37,7 +37,7 @@ def lalala(message):
         elif message.text == 'Закончить Диалог':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             item1 = types.KeyboardButton("Коронавирус")
-            item2 = types.KeyboardButton("Привет")
+            item2 = types.KeyboardButton("Начать диалог")
             markup.add(item1, item2)
             bot.send_message(message.chat.id, 'До свидания, с вами было приятно общаться!', reply_markup=markup)
         elif message.text == '😊 Как у тебя дела?':
