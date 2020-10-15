@@ -23,7 +23,7 @@ def lalala(message):
             bot.send_message(message.chat.id, "Выберите страну:",
         parse_mode='html', reply_markup=markup)
             bot.register_next_step_handler(message, choosecountry)
-        elif message.text == 'Начать диалог':
+        elif message.text == "Начать диалог":
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('Привет', 'Закончить Диалог')
             bot.send_message(message.chat.id, "", reply_markup=markup)
