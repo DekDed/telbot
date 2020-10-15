@@ -25,7 +25,7 @@ def lalala(message):
             bot.register_next_step_handler(message, choosecountry)
         elif message.text == 'Начать диалог':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            markup.row('Привет', 'Закончить Диалог')
+            markup.row('Привет', 'Закончить Диалог', reply_markup=markup)
         elif message.text == 'Привет':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('Как тебя зовут?', 'Закончить Диалог')
