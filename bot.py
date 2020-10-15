@@ -26,7 +26,7 @@ def lalala(message):
         elif message.text == 'Начать диалог':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('Привет', 'Закончить Диалог')
-            bot.send_message(message.chat.id, "---", reply_markup=markup)
+            bot.send_message(message.chat.id, " ", reply_markup=markup)
         elif message.text == 'Привет':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('Как тебя зовут?', 'Закончить Диалог')
@@ -40,7 +40,7 @@ def lalala(message):
             item1 = types.KeyboardButton("Коронавирус")
             item2 = types.KeyboardButton("Начать диалог")
             markup.add(item1, item2)
-            bot.send_message(message.chat.id, 'До свидания, с вами было приятно общаться!', reply_markup=markup)
+            bot.send_message(message.chat.id, 'До свидания, с тобой было приятно общаться!', reply_markup=markup)
         elif message.text == '😊 Как у тебя дела?':
             markup = types.InlineKeyboardMarkup(row_width=2)
             item1 = types.InlineKeyboardButton("Хорошо", callback_data='good')
