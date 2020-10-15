@@ -1,7 +1,7 @@
 import telebot
 import config
 from telebot import types
-from cov import getcorona
+from covid import getcorona
 
 bot = telebot.TeleBot(config.token)
 
