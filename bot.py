@@ -86,8 +86,7 @@ def callback_inline(call):
             elif call.data == 'bad':
                 bot.send_message(call.message.chat.id, 'Бывает 😢')
  
-            #bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="😊 Как дела?",
-                reply_markup=None)
+            #bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="😊 Как дела?", reply_markup=None)
  
             #bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="ЭТО ТЕСТОВОЕ УВЕДОМЛЕНИЕ!!11")
  
