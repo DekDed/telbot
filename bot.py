@@ -34,7 +34,7 @@ def lalala(message):
         elif message.text == 'Как тебя зовут?':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('😊 Как у тебя дела?', 'Закончить Диалог')
-            bot.send_message(message.chat.id, "Я - <b>{1.first_name}</b>".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup=markup)
+            bot.send_message(message.chat.id, "Меня зовут - <b>{1.first_name}</b>".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup=markup)
         elif message.text == 'Закончить Диалог':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             item1 = types.KeyboardButton("Коронавирус")
@@ -90,7 +90,7 @@ def callback_inline(call):
             elif call.data == 'bad':
                 bot.send_message(call.message.chat.id, 'Бывает 😢')
  
-            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="😊 Как дела?", reply_markup=None)
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=None)
  
             #bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="ЭТО ТЕСТОВОЕ УВЕДОМЛЕНИЕ!!11")
  
