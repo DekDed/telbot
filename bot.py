@@ -13,8 +13,7 @@ markup.add(item1, item2)
 @bot.message_handler(commands=['start'])
 def welcome(message):
     bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAIfZl9_JejD_V_wc6qkAdxMVrpr4cqAAAIuAQACIpHMAztF5TszquAQGwQ')
-    bot.send_message(message.chat.id, "Добро пожаловать, {0.first_name}!\nЯ - <b>{1.first_name}</b>, бот созданный чтобы быть пожилым сычем.".format(message.from_user, bot.get_me()),
-        parse_mode='html', reply_markup=markup)
+    #bot.send_message(message.chat.id, "Добро пожаловать, {0.first_name}!\nЯ - <b>{1.first_name}</b>, бот созданный чтобы быть пожилым сычем.".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup=markup)
  
 @bot.message_handler(content_types=['text'])
 def lalala(message):
@@ -27,11 +26,11 @@ def lalala(message):
         elif message.text == 'Привет':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('Как тебя зовут?', 'Закончить Диалог')
-            bot.send_message(message.chat.id, 'Добро пожаловать!', reply_markup=markup)
+            bot.send_message(message.chat.id, "Добро пожаловать, {0.first_name}!".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup=markup)
         elif message.text == 'Как тебя зовут?':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.row('😊 Как дела?', 'Закончить Диалог')
-            bot.send_message(message.chat.id, 'Я - <b>{1.first_name}</b>', parse_mode='html', reply_markup=markup)
+            bot.send_message(message.chat.id, "Я - <b>{1.first_name}</b>".format(message.from_user, bot.get_me()), parse_mode='html', reply_markup=markup)
         elif message.text == 'Закончить Диалог':
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             bot.send_message(message.chat.id, 'До свидания, с вами было приятно общаться!', reply_markup=markup)
